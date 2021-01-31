@@ -11,6 +11,4 @@ defmodule Exercise.ContractManager.Contract do
 
     timestamps()
   end
-
-
 end

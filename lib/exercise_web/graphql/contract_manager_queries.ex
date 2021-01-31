@@ -6,8 +6,16 @@ defmodule ExerciseWeb.Graphql.ContractManagerQueries do
   alias ExerciseWeb.Graphql.Resolvers.ContractManagerResolver
 
   object :contract_queries do
-    field :contracts, :string do
-      resolve(&ContractManagerResolver.contracts/2)
+    field :list_contracts, list_of(:contract) do
+      resolve(&ContractManagerResolver.list_contracts/2)
+    end
+
+    field :list_legal_persons, list_of(:legal_person) do
+      resolve(&ContractManagerResolver.list_legal_persons/2)
+    end
+
+    field :list_legal_entities, list_of(:legal_entity) do
+      resolve(&ContractManagerResolver.list_legal_entities/2)
     end
   end
 end
