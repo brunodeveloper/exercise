@@ -8,6 +8,7 @@ defmodule Exercise.ContractManager.Contract do
     field :file_path, :string
     field :name, :string
     field :description, :string
+    field :date, :date
 
     timestamps()
   end

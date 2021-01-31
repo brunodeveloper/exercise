@@ -30,13 +30,22 @@ defmodule Exercise.ContractManager do
     |> Enum.map(&LegalEntity.from_entity(&1))
   end
 
-  def list_contracts do
+  def list_contracts(_entity, date) do
     from(
       c in Contract,
       select: c
     )
+    |> filter_date(date)
     |> Repo.all()
   end
+
+  defp filter_date(queryable, date) when is_nil(date), do: queryable
+
+  defp filter_date(queryable, date) do
+    queryable
+    |> where([c], c.date == ^date)
+  end
+
 
   def legal_persons_by_contract(contract) do
     from(

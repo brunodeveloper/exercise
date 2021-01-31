@@ -7,7 +7,10 @@ defmodule ExerciseWeb.Graphql.ContractManagerQueries do
 
   object :contract_queries do
     field :list_contracts, list_of(:contract) do
-      resolve(&ContractManagerResolver.list_contracts/2)
+      arg(:entity_id, :integer)
+      arg(:date, :string)
+
+      resolve(&ContractManagerResolver.list_contracts/3)
     end
 
     field :list_legal_persons, list_of(:legal_person) do

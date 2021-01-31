@@ -13,8 +13,11 @@ defmodule ExerciseWeb.Graphql.Resolvers.ContractManagerResolver do
     {:ok, ContractManager.list_legal_entities()}
   end
 
-  def list_contracts(_, _) do
-    {:ok, ContractManager.list_contracts()}
+  def list_contracts(_, params, _) do
+    entity_id = Map.get(params, :entity_id, nil)
+    date = Map.get(params, :date, nil)
+
+    {:ok, ContractManager.list_contracts(entity_id, date)}
   end
 
   def legal_persons_by_contract(contract, _, _) do
