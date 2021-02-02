@@ -80,4 +80,38 @@ defmodule Exercise.ContractManager do
     |> Repo.all()
     |> Enum.map(&LegalEntity.from_entity(&1))
   end
+
+  def create_legal_person(new_legal_person) do
+
+    legal_person = %{
+      name: new_legal_person.name,
+      identification_document: new_legal_person.cpf,
+      birthdate: new_legal_person.birthdate,
+      type_entity: Entity.entity_type_legal_person()
+    }
+
+    %Entity{}
+    |> Entity.create_legal_person_changeset(legal_person)
+    |> Repo.insert!()
+
+  end
+
+  def create_legal_entity(new_legal_entity) do
+
+    legal_entity = %{
+      name: new_legal_entity.name,
+      identification_document: new_legal_entity.cnpj,
+      country: new_legal_entity.country,
+      state: new_legal_entity.state,
+      city: new_legal_entity.city,
+      zip_code: new_legal_entity.zip_code,
+      address: new_legal_entity.address,
+      type_entity: Entity.entity_type_legal_entity()
+    }
+
+    %Entity{}
+    |> Entity.create_legal_entity_changeset(legal_entity)
+    |> Repo.insert!()
+
+  end
 end

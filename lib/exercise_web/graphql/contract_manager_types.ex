@@ -43,4 +43,29 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
     field(:zip_code, :string)
     field(:address, :string)
   end
+
+  object :legal_person_payload do
+    field(:id, :integer)
+  end
+
+  input_object :legal_person_input do
+    field(:name, non_null(:string))
+    field(:cpf, non_null(:string))
+    field(:birthdate, non_null(:string))
+  end
+
+  object :legal_entity_payload do
+    field(:id, :integer)
+  end
+
+  input_object :legal_entity_input do
+    field(:name, non_null(:string))
+    field(:cnpj, non_null(:string))
+    field(:country, non_null(:string))
+    field(:state, non_null(:string))
+    field(:city, non_null(:string))
+    field(:zip_code, non_null(:string))
+    field(:address, non_null(:string))
+  end
+
 end

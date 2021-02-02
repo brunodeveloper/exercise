@@ -8,4 +8,8 @@ defmodule ExerciseWeb.Graphql.Schema do
   query do
     import_fields(:contract_queries)
   end
+
+  mutation do
+    import_fields(:contract_mutations)
+  end
 end

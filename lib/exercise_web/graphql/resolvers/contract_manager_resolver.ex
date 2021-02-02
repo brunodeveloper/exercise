@@ -27,4 +27,13 @@ defmodule ExerciseWeb.Graphql.Resolvers.ContractManagerResolver do
   def legal_entities_by_contract(contract, _, _) do
     {:ok, ContractManager.legal_entities_by_contract(contract)}
   end
+
+  def create_legal_person(_, params, _) do
+    {:ok, ContractManager.create_legal_person(params.input)}
+  end
+
+  def create_legal_entity(_, params, _) do
+    {:ok, ContractManager.create_legal_entity(params.input)}
+  end
+
 end
