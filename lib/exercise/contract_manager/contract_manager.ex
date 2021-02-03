@@ -82,7 +82,6 @@ defmodule Exercise.ContractManager do
   end
 
   def create_legal_person(new_legal_person) do
-
     legal_person = %{
       name: new_legal_person.name,
       identification_document: new_legal_person.cpf,
@@ -93,11 +92,9 @@ defmodule Exercise.ContractManager do
     %Entity{}
     |> Entity.create_legal_person_changeset(legal_person)
     |> Repo.insert!()
-
   end
 
   def create_legal_entity(new_legal_entity) do
-
     legal_entity = %{
       name: new_legal_entity.name,
       identification_document: new_legal_entity.cnpj,
@@ -112,6 +109,48 @@ defmodule Exercise.ContractManager do
     %Entity{}
     |> Entity.create_legal_entity_changeset(legal_entity)
     |> Repo.insert!()
+  end
 
+  def insert_contract(new_contract) do
+    contract = %{
+      file_path: new_contract.file_path,
+      name: new_contract.name,
+      description: new_contract.description,
+      date: new_contract.date
+    }
+
+    %Contract{}
+    |> Contract.create_changeset(contract)
+    |> Repo.insert()
+  end
+
+  def insert_contract_entities(contract_id, entity_id) do
+    try do
+      contract = %{
+        contract_id: contract_id,
+        entity_id: entity_id
+      }
+
+      %ContractEntity{}
+      |> ContractEntity.create_changeset(contract)
+      |> Repo.insert()
+    rescue
+      _ -> false
+    end
+  end
+
+  def create_contract(contract) do
+    case insert_contract(contract) do
+      {:ok, new_contract} ->
+        contract.entities
+        |> Enum.map(fn entity ->
+          insert_contract_entities(new_contract.id, entity)
+        end)
+
+        new_contract
+
+      _ ->
+        false
+    end
   end
 end

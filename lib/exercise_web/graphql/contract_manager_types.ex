@@ -68,4 +68,17 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
     field(:address, non_null(:string))
   end
 
+  object :contract_payload do
+    field(:id, :integer)
+  end
+
+  input_object :contract_input do
+    field(:file_path, non_null(:string))
+    field(:name, non_null(:string))
+    field(:description, non_null(:string))
+    field(:date, non_null(:string))
+    field(:entities, list_of(:integer))
+  end
+
+
 end

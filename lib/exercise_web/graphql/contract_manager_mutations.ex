@@ -16,6 +16,11 @@ defmodule ExerciseWeb.Graphql.ContractManagerMutations do
       resolve(&ContractManagerResolver.create_legal_entity/3)
     end
 
+    field :create_contract, :contract_payload do
+      arg(:input, non_null(:contract_input))
+      resolve(&ContractManagerResolver.create_contract/3)
+    end
+
   end
 
 end

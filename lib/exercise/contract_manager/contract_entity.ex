@@ -10,4 +10,9 @@ defmodule Exercise.ContractManager.ContractEntity do
 
     timestamps()
   end
+
+  def create_changeset(contract_entity, attrs) do
+    contract_entity
+    |> cast(attrs, [:contract_id, :entity_id])
+  end
 end

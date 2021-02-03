@@ -12,4 +12,9 @@ defmodule Exercise.ContractManager.Contract do
 
     timestamps()
   end
+
+  def create_changeset(contract, attrs) do
+    contract
+    |> cast(attrs, [:file_path, :name, :description, :date])
+  end
 end
