@@ -1,9 +1,9 @@
-defmodule Exercise.ContractManager.LegalPerson do
+defmodule Exercise.ContractManager.PhysicalPerson do
   @moduledoc false
 
   use Ecto.Schema
 
-  alias Exercise.ContractManager.LegalPerson
+  alias Exercise.ContractManager.PhysicalPerson
 
   defstruct id: nil,
             name: nil,
@@ -11,7 +11,7 @@ defmodule Exercise.ContractManager.LegalPerson do
             birthdate: nil
 
   def from_entity(entity) do
-    %LegalPerson{
+    %PhysicalPerson{
       id: entity.id,
       name: entity.name,
       cpf: entity.identification_document,

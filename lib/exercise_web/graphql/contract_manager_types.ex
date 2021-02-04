@@ -12,9 +12,9 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
     field(:description, :string)
     field(:date, :string)
 
-    field :legal_persons, list_of(:legal_person) do
+    field :physical_persons, list_of(:physical_person) do
       async(fn ->
-        resolve(&ContractManagerResolver.legal_persons_by_contract/3)
+        resolve(&ContractManagerResolver.physical_persons_by_contract/3)
       end)
     end
 
@@ -25,7 +25,7 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
     end
   end
 
-  object :legal_person do
+  object :physical_person do
     field(:id, :integer)
     field(:name, :string)
     field(:cpf, :string)
@@ -43,11 +43,11 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
     field(:address, :string)
   end
 
-  object :legal_person_payload do
+  object :physical_person_payload do
     field(:id, :integer)
   end
 
-  input_object :legal_person_input do
+  input_object :physical_person_input do
     field(:name, non_null(:string))
     field(:cpf, non_null(:string))
     field(:birthdate, non_null(:string))

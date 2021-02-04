@@ -1,12 +1,12 @@
-defmodule ExerciseWeb.Graphql.ContractManager.Mutations.CreateLegalPersonTest do
+defmodule ExerciseWeb.Graphql.ContractManager.Mutations.CreatePhysicalPersonTest do
   use ExerciseWeb.ConnCase
 
   alias Exercise.ContractManager.Entity
   alias Exercise.Repo
 
   @mutation """
-  mutation createLegalPerson($input: LegalPersonInput){
-    createLegalPerson(input: $input) {
+  mutation createPhysicalPerson($input: PhysicalPersonInput){
+    createPhysicalPerson(input: $input) {
       id
     }
   }
@@ -31,7 +31,7 @@ defmodule ExerciseWeb.Graphql.ContractManager.Mutations.CreateLegalPersonTest do
       assert response == %{
                "errors" => [
                  %{
-                   "locations" => [%{"column" => 21, "line" => 2}],
+                   "locations" => [%{"column" => 24, "line" => 2}],
                    "message" =>
                      "Argument \"input\" has invalid value $input.\nIn field \"name\": Expected type \"String!\", found null.\nIn field \"name_2\": Unknown field. Did you mean \"name\"?"
                  }
@@ -56,8 +56,8 @@ defmodule ExerciseWeb.Graphql.ContractManager.Mutations.CreateLegalPersonTest do
         )
         |> json_response(200)
 
-      legal_person = Repo.get_by(Entity, %{identification_document: "987654321"})
-      assert response == %{"data" => %{"createLegalPerson" => %{"id" => legal_person.id}}}
+      physical_person = Repo.get_by(Entity, %{identification_document: "987654321"})
+      assert response == %{"data" => %{"createPhysicalPerson" => %{"id" => physical_person.id}}}
     end
   end
 end
