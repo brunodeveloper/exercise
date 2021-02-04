@@ -145,9 +145,9 @@ defmodule Exercise.ContractManager do
         contract.entities
         |> Enum.map(fn entity ->
           insert_contract_entities(new_contract.id, entity)
-        end)
 
-        new_contract
+          new_contract
+        end)
 
       _ ->
         false
