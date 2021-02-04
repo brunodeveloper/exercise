@@ -2,7 +2,6 @@ defmodule Exercise.ContractManager.LegalPerson do
   @moduledoc false
 
   use Ecto.Schema
-  import Ecto.Changeset
 
   alias Exercise.ContractManager.LegalPerson
 

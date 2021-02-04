@@ -10,4 +10,5 @@ defmodule ExerciseWeb.Router do
   end
 
   forward("/graphiql", Absinthe.Plug.GraphiQL, schema: ExerciseWeb.Graphql.Schema)
+  forward("/graphql", Absinthe.Plug, schema: ExerciseWeb.Graphql.Schema)
 end
