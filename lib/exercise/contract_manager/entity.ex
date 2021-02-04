@@ -29,8 +29,15 @@ defmodule Exercise.ContractManager.Entity do
 
   def create_legal_entity_changeset(entity, attrs) do
     entity
-    |> cast(attrs, [:name, :identification_document, :country, :state, :city, :zip_code, :address, :type_entity])
+    |> cast(attrs, [
+      :name,
+      :identification_document,
+      :country,
+      :state,
+      :city,
+      :zip_code,
+      :address,
+      :type_entity
+    ])
   end
-
-
 end

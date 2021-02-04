@@ -39,5 +39,4 @@ defmodule ExerciseWeb.Graphql.Resolvers.ContractManagerResolver do
   def create_contract(_, params, _) do
     {:ok, ContractManager.create_contract(params.input)}
   end
-
 end

@@ -20,7 +20,5 @@ defmodule ExerciseWeb.Graphql.ContractManagerMutations do
       arg(:input, non_null(:contract_input))
       resolve(&ContractManagerResolver.create_contract/3)
     end
-
   end
-
 end

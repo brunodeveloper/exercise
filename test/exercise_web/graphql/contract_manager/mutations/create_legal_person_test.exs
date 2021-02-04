@@ -41,7 +41,7 @@ defmodule ExerciseWeb.Graphql.ContractManager.Mutations.CreateLegalPersonTest do
   end
 
   describe "a valid payload" do
-    test "returns the entity ID that was successfully created", %{conn: conn}  do
+    test "returns the entity ID that was successfully created", %{conn: conn} do
       response =
         conn
         |> post("/graphql",
@@ -60,5 +60,4 @@ defmodule ExerciseWeb.Graphql.ContractManager.Mutations.CreateLegalPersonTest do
       assert response == %{"data" => %{"createLegalPerson" => %{"id" => legal_person.id}}}
     end
   end
-
 end

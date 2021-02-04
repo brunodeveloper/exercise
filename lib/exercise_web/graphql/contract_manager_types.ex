@@ -6,7 +6,6 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
   alias ExerciseWeb.Graphql.Resolvers.ContractManagerResolver
 
   object :contract do
-
     field(:id, :integer)
     field(:file_path, :string)
     field(:name, :string)
@@ -79,6 +78,4 @@ defmodule ExerciseWeb.Graphql.ContractManagerTypes do
     field(:date, non_null(:string))
     field(:entities, list_of(:integer))
   end
-
-
 end
