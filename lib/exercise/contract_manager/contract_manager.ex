@@ -142,12 +142,13 @@ defmodule Exercise.ContractManager do
   def create_contract(contract) do
     case insert_contract(contract) do
       {:ok, new_contract} ->
-        contract.entities
-        |> Enum.map(fn entity ->
-          insert_contract_entities(new_contract.id, entity)
+        _insert =
+          contract.entities
+          |> Enum.map(fn entity ->
+            insert_contract_entities(new_contract.id, entity)
+          end)
 
-          new_contract
-        end)
+        new_contract
 
       _ ->
         false
