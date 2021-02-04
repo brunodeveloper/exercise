@@ -20,9 +20,9 @@ defmodule Exercise.ContractManager.Entity do
 
   def entity_type_legal_entity(), do: "legal_entity"
 
-  def entity_type_legal_person(), do: "legal_person"
+  def entity_type_physical_person(), do: "physical_person"
 
-  def create_legal_person_changeset(entity, attrs) do
+  def create_physical_person_changeset(entity, attrs) do
     entity
     |> cast(attrs, [:name, :identification_document, :birthdate, :type_entity])
   end

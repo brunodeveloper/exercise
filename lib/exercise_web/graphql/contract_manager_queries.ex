@@ -13,8 +13,8 @@ defmodule ExerciseWeb.Graphql.ContractManagerQueries do
       resolve(&ContractManagerResolver.list_contracts/3)
     end
 
-    field :list_legal_persons, list_of(:legal_person) do
-      resolve(&ContractManagerResolver.list_legal_persons/2)
+    field :list_physical_persons, list_of(:physical_person) do
+      resolve(&ContractManagerResolver.list_physical_persons/2)
     end
 
     field :list_legal_entities, list_of(:legal_entity) do

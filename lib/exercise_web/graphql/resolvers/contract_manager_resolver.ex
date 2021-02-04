@@ -5,8 +5,8 @@ defmodule ExerciseWeb.Graphql.Resolvers.ContractManagerResolver do
 
   alias Exercise.ContractManager
 
-  def list_legal_persons(_, _) do
-    {:ok, ContractManager.list_legal_persons()}
+  def list_physical_persons(_, _) do
+    {:ok, ContractManager.list_physical_persons()}
   end
 
   def list_legal_entities(_, _) do
@@ -20,16 +20,16 @@ defmodule ExerciseWeb.Graphql.Resolvers.ContractManagerResolver do
     {:ok, ContractManager.list_contracts(entity_id, date)}
   end
 
-  def legal_persons_by_contract(contract, _, _) do
-    {:ok, ContractManager.legal_persons_by_contract(contract)}
+  def physical_persons_by_contract(contract, _, _) do
+    {:ok, ContractManager.physical_persons_by_contract(contract)}
   end
 
   def legal_entities_by_contract(contract, _, _) do
     {:ok, ContractManager.legal_entities_by_contract(contract)}
   end
 
-  def create_legal_person(_, params, _) do
-    {:ok, ContractManager.create_legal_person(params.input)}
+  def create_physical_person(_, params, _) do
+    {:ok, ContractManager.create_physical_person(params.input)}
   end
 
   def create_legal_entity(_, params, _) do
