@@ -1,4 +1,5 @@
 defmodule ExerciseWeb.Graphql.Schema do
+  @moduledoc false
   use Absinthe.Schema
 
   import_types(ExerciseWeb.Graphql.ContractManagerTypes)
