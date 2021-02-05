@@ -25,10 +25,8 @@ To start your server:
 
 Now you can visit Graphiql Playground to test and see the queries and mutations [`localhost:4000/graphiql`](http://localhost:4000/graphiql) from your browser.
 
-
-## Github Actions 
+## Github [Actions](https://github.com/brunodeveloper/exercise/actions)
 * `.github/workflows/elixir.yml`
-
 
 # Graphql
 
